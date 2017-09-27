@@ -17,9 +17,6 @@ for line in sys.stdin:
         continue
 
     thisKey, thisSale = data_mapped
-    thisSale = float(thisSale)
-    if thisSale > highestSale:
-        highestSale = thisSale
 
     if oldKey and oldKey != thisKey:
         print oldKey, "\t", highestSale
@@ -27,6 +24,9 @@ for line in sys.stdin:
         highestSale = 0
 
     oldKey = thisKey
+    thisSale = float(thisSale)
+    if thisSale > highestSale:
+        highestSale = thisSale
 
 if oldKey != None:
     print oldKey, "\t", highestSale
